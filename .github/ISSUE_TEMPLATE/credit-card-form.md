@@ -10,8 +10,10 @@ assignees: ''
 ### README
 
 1. commit 規則
-新增功能：`feat: finished <features>`
-修改功能(解衝突,`merge` etc..)：`fix:modify <features>`
+新增單一功能：`feat: add <features>`
+完成功能：`feat: finished <features>`
+重構功能(既不是新增功能，也不是修補 bug 的程式碼變動)：`refactor:modify features / layout`
+修改錯誤(解衝突,`merge` etc..)：`fix:modify <features>`
 
 2. 開發方式
 請在`develop`上創建自己的分支進行作業
