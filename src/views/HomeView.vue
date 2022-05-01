@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <credit-card />
-    <H1>GOOD LUCK</H1>
+    <h1>GOOD LUCK</h1>
     <Form />
   </div>
 </template>
