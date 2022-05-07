@@ -1,8 +1,11 @@
 <template>
   <div class="home">
-    <credit-card />
+    <credit-card :userCardNumber="userCardNumber" :cardHolder="cardHolder" />
     <h1>GOOD LUCK</h1>
-    <CreditCardForm />
+    <CreditCardForm
+      v-model:cardNumber.number="userCardNumber"
+      v-model:cardHolder="cardHolder"
+    />
   </div>
 </template>
 
@@ -12,6 +15,15 @@ import CreditCardForm from "../components/CreditCardForm.vue";
 
 export default {
   name: "HomeView",
-  components: { CreditCard, CreditCardForm },
+  components: {
+    CreditCard,
+    CreditCardForm,
+  },
+  data() {
+    return {
+      userCardNumber: 66666,
+      cardHolder: "wendy",
+    };
+  },
 };
 </script>
