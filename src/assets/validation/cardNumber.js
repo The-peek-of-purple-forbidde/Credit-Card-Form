@@ -1,20 +1,11 @@
-//* isRequired 不得輸入空值
-export function isRequired(value) {
-  // console.log(typeof value);
-  return value.trim().length !== 0;
-}
-
-//* 判別型別 > 全數字
-export function hasOnlyNumber(value) {
-  return /\d+/.test(value) === true;
-}
-
 //* 判別長度
 export function hasDigitsOf(amount) {
   return function (value) {
     return value.length === amount;
   };
 }
+
+export const hasDigitsOfSixteen = hasDigitsOf(16);
 
 //* 信用卡卡號驗證
 export function isValidatedCard(cardNumber) {
