@@ -27,10 +27,9 @@
 
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
+import { isRequired, hasOnlyNumber } from "../assets/validation/common";
 import {
-  isRequired,
-  hasOnlyNumber,
-  hasDigitsOf,
+  hasDigitsOfSixteen,
   isValidatedCard,
 } from "../assets/validation/cardNumber";
 import { isFormattedEnglishName } from "../assets/validation/cardHolder";
@@ -57,7 +56,7 @@ export default {
     isValidateCardNumber(value) {
       if (!isRequired(value)) return "請勿輸入空值";
       if (!hasOnlyNumber(value)) return "格式不符";
-      if (!hasDigitsOf(16)(value)) return "長度不符";
+      if (!hasDigitsOfSixteen(value)) return "長度不符";
       if (!isValidatedCard(value)) return "卡號是假的";
       return true;
     },
