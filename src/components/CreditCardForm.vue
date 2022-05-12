@@ -15,7 +15,7 @@
     <Field
       name="CardHolders"
       type="CardHolders"
-      :rules="isStringRequired"
+      :rules="isFormattedHolderName"
       :value="cardHolder"
       @input="$emit('update:cardHolder', $event.target.value)"
     ></Field>
@@ -33,6 +33,7 @@ import {
   hasDigitsOf,
   isValidatedCard,
 } from "../assets/validation/cardNumber";
+import { isFormattedEnglishName } from "../assets/validation/cardHolder";
 export default {
   name: "CreditCardForm",
   components: {
@@ -46,6 +47,13 @@ export default {
     return {};
   },
   methods: {
+    // isStringRequired(value) {
+    //   if (value && value.trim) {
+    //     return true;
+    //   } else {
+    //     return "請勿輸入空值";
+    //   }
+    // },
     isValidateCardNumber(value) {
       if (!isRequired(value)) return "請勿輸入空值";
       if (!hasOnlyNumber(value)) return "格式不符";
@@ -53,12 +61,10 @@ export default {
       if (!isValidatedCard(value)) return "卡號是假的";
       return true;
     },
-    isStringRequired(value) {
-      if (value && value.trim) {
-        return true;
-      } else {
-        return "請勿輸入空值";
-      }
+    isFormattedHolderName(value) {
+      if (!isRequired(value)) return "請勿輸入空值";
+      if (!isFormattedEnglishName(value)) return "格式不符";
+      return true;
     },
   },
 };
