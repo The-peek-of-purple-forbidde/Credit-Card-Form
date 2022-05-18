@@ -109,6 +109,7 @@ export default {
     height: 100%;
     color: #000;
     line-height: 42px;
+    font-size: 22px;
   }
 }
 .card-back__img {
