@@ -56,3 +56,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+form input:focus {
+  box-shadow: 0 5px 20px -3px black;
+}
+</style>
