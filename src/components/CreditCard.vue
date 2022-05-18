@@ -6,12 +6,14 @@
   <div class="credit-card">edit line -----------------------</div>
   <div class="scene scene--card">
     <div class="card">
-      <div class="card__face card__face--front">正面(還沒做）</div>
+      <div class="card__face card__face--front">正面待補</div>
       <div class="card__face card__face--back">
         <div class="card-back__band"></div>
         <div class="card-back__content">
-          <div class="card-back__title">CW</div>
-          <div class="card-back__enter"></div>
+          <div class="card-back__title">CVV</div>
+          <div class="card-back__enter">
+            <span></span>
+          </div>
           <div class="card-back__img">
             <img
               src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png"
@@ -41,8 +43,8 @@ export default {
 <style lang="scss" scoped>
 // 卡片的設定部分
 .scene {
-  width: 310px;
-  height: 220px;
+  width: 430px;
+  height: 270px;
   margin: 0 auto;
   perspective: 600px;
 }
@@ -61,7 +63,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 30px;
+  border-radius: 15px;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -93,15 +95,21 @@ export default {
   text-align: right;
 }
 .card-back__title {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-size: 15px;
 }
 .card-back__enter {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   height: 40px;
   width: 100%;
   background-color: #fff;
   border-radius: 5px;
+  span {
+    display: block;
+    height: 100%;
+    color: #000;
+    line-height: 42px;
+  }
 }
 .card-back__img {
   display: inline-block;
