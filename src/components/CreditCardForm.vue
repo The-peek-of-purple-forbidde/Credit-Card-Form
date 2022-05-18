@@ -59,6 +59,6 @@ export default {
 
 <style lang="scss" scoped>
 form input:focus {
-  box-shadow: 0 5px 20px -3px black;
+  box-shadow: 0px 7px 10px -3px rgb(0 0 0 / 18%);
 }
 </style>
