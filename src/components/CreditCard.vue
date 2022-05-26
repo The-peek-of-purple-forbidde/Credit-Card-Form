@@ -181,7 +181,7 @@ export default {
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     margin-bottom: 40px;
     padding: 0 10px;
   }
