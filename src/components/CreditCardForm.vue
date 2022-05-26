@@ -2,9 +2,10 @@
   <Form v-slot="{ values }">
     <p>Card Number</p>
     <Field
+      maxlength="16"
       name="CardNumber"
       type="CardNumber"
-      :rules="isNumberRequired"
+      :rules="isValidateCardNumber"
       :value="cardNumber"
       @input="$emit('update:cardNumber', $event.target.value)"
     >
@@ -14,7 +15,7 @@
     <Field
       name="CardHolders"
       type="CardHolders"
-      :rules="isStringRequired"
+      :rules="isFormattedHolderName"
       :value="cardHolder"
       @input="$emit('update:cardHolder', $event.target.value)"
     ></Field>
@@ -26,6 +27,12 @@
 
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
+import { isRequired, hasOnlyNumber } from "../assets/validation/common";
+import {
+  hasDigitsOfSixteen,
+  isValidatedCard,
+} from "../assets/validation/cardNumber";
+import { isFormattedEnglishName } from "../assets/validation/cardHolder";
 export default {
   name: "CreditCardForm",
   components: {
@@ -39,19 +46,24 @@ export default {
     return {};
   },
   methods: {
-    isNumberRequired(value) {
-      if (value && value.trim) {
-        return true;
-      } else {
-        return "請勿輸入空值";
-      }
+    // isStringRequired(value) {
+    //   if (value && value.trim) {
+    //     return true;
+    //   } else {
+    //     return "請勿輸入空值";
+    //   }
+    // },
+    isValidateCardNumber(value) {
+      if (!isRequired(value)) return "請勿輸入空值";
+      if (!hasOnlyNumber(value)) return "格式不符";
+      if (!hasDigitsOfSixteen(value)) return "長度不符";
+      if (!isValidatedCard(value)) return "卡號是假的";
+      return true;
     },
-    isStringRequired(value) {
-      if (value && value.trim) {
-        return true;
-      } else {
-        return "請勿輸入空值";
-      }
+    isFormattedHolderName(value) {
+      if (!isRequired(value)) return "請勿輸入空值";
+      if (!isFormattedEnglishName(value)) return "格式不符";
+      return true;
     },
   },
 };
